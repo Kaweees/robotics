@@ -1,0 +1,1 @@
+- Whenever the [robot](Robot) moves or rotates, its [Reference Frame](Reference%20Frame) makes the same motion
