@@ -1,0 +1,1 @@
+- The **bias** $b$ of a [model](Model.md) $f$ represents the baseline response the model has before considering the values of a particular datapoint $\mathbf{x}$ from a dataset $\mathcal{D}$.

@@ -1,0 +1,3 @@
+- The **weight** $w_n$ of a [model](Model.md) $f$ represents how much influence a specific [feature](Feature.md) from a dataset $\mathcal{D}$ should have on the model's output.
+  - The magnitude of the weights indicate their influence to the classification.
+  - The sign of the weights indicate the direction of the influence.
