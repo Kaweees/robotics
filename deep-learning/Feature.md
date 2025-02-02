@@ -1,0 +1,1 @@
+- A **feature** (aka dimension) is an individual measurable property or characteristic of the input data.
