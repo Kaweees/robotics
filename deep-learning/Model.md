@@ -1,5 +1,4 @@
-- A **model** $f$ is a [function](Function.md) that **approximates the relationship** between a dataset of input-output pairs and output predictions.
-Given a dataset $\mathcal{D}$ of input-output pairs:
+- A **model** $f$ is a [function](Function.md) that **approximates the relationship** between a dataset $\mathcal{D}$ of input-output pairs and output predictions.
 $$
 \mathcal{D} = \{(\mathbf{x}_i, y_i) \mid \mathbf{x}_i \in \mathbb{R}^N, y_i \in \mathcal{Y}, i = 1, \dots, \mathcal{m}\}
 $$
