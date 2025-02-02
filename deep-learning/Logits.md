@@ -1,0 +1,1 @@
+- A **logit** (aka pre-activation) represents how strongly a [model](Model) believes a particular datapoint $\mathbf{x}$ from a dataset $\mathcal{D}$ belongs to each possible outcome.
