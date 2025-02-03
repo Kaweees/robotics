@@ -1,0 +1,1 @@
+- The Softmax is a type of [activation function](Activation%20Function.md)

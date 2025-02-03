@@ -1,0 +1,1 @@
+- A [function](Function) that takes multiple inputs (variables) and produces a single output, generalizing the idea of a function to higher dimensions.

@@ -1,4 +1,4 @@
-- A **logit** (aka pre-activation) represents how strongly a [model](Model) believes a particular datapoint $\mathbf{x}$ from a dataset $\mathcal{D}$ belongs to each possible outcome.
+- A **logit** (aka pre-activation) $z$ represents how strongly a [model](Model.md) believes a particular datapoint $\mathbf{x}$ from a dataset $\mathcal{D}$ belongs to each possible outcome.
 $$
 z = w_1 x_1 + w_2 x_2 + \dots + w_n x_n + b = \sum_{n=1}^{N} w_n x_n + b
 $$
@@ -30,3 +30,5 @@ where:
 - $\mathbf{w}$ is a vector of weights
 - $\mathbf{x}$ is a vector of input features
 - $b$ is a scalar bias
+
+This affine transformation maps the vector input to the scalar pre-activation.

@@ -1,0 +1,1 @@
+- A [function](Function) that takes in a single input (variables) and produces a single output

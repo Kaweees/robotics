@@ -1,0 +1,2 @@
+- Adaptive Moment Descent (Adam)
+- 

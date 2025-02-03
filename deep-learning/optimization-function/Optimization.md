@@ -1,0 +1,1 @@
+- Optimization is the process of adjusting the [model's](Model.md) $f$ parameters $\theta$ in order to make it approximate the input-output relationship of a dataset $\mathcal{D}$ as closely as possible .

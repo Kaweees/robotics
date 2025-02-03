@@ -1,0 +1,3 @@
+ - The **step size** (aka learning rate) $\eta \in (0, 1)$ is the rate at which the [model's](Model.md) parameters are updated during each iteration of the [optimization](Optimization.md) process.
+   - If the step size is too large, the optimization process may diverge.
+   - If the step size is too small, the optimization process may converge too slowly.
