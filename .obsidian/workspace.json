@@ -1,0 +1,209 @@
+{
+  "main": {
+    "id": "f3bb08ef6c01dfd2",
+    "type": "split",
+    "children": [
+      {
+        "id": "4c17b939228353cf",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "de233b3539ab912a",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "489580378cc9c6cd",
+    "type": "split",
+    "children": [
+      {
+        "id": "01b44c289e3543af",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "35a8f44c20c3fecd",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "d622ce4b223d7232",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "a064ae15fb303053",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "94232bed6b304c97",
+    "type": "split",
+    "children": [
+      {
+        "id": "af8717c41042bdef",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b0476c6bb4a9469e",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "mathematics/Gradient.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Gradient"
+            }
+          },
+          {
+            "id": "dd22ffe52adc9ffe",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "mathematics/Gradient.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Gradient"
+            }
+          },
+          {
+            "id": "665e88236bae6ed7",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "9e1330bc88f84dda",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "mathematics/Gradient.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Gradient"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "graph:Open graph view": false,
+      "switcher:Open quick switcher": false,
+      "workspaces:Manage workspace layouts": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "obsidian-git:Open Git source control": false,
+      "obsidian-excalidraw-plugin:Create new drawing": false,
+      "markdown-importer:Open format converter": false
+    }
+  },
+  "active": "de233b3539ab912a",
+  "lastOpenFiles": [
+    "deep-learning/neural-networks/Forward Propagation.md",
+    "deep-learning/neural-networks/Neural Network.md",
+    "deep-learning/neural-networks/Backpropagation.md",
+    "deep-learning/neural-networks/Neuron.md",
+    "deep-learning/neural-networks/bruh.md",
+    "deep-learning/neural-networks/Activation Unit.md",
+    "statistics/Linear Model.md",
+    "statistics/Linear Classifier.md",
+    "mathematics/Partial Derivative.md",
+    "mathematics/Multivariate Function.md",
+    "mathematics/Gradient.md",
+    "mathematics/Chain Rule.md",
+    "deep-learning/activation-function/Activation Function.md",
+    "deep-learning/activation-function/Hyperbolic Tangent.md",
+    "statistics/Model.md",
+    "Pasted image 20250203062712.png",
+    "deep-learning/neural-networks/Logits.md",
+    "deep-learning/Backpropagation.md",
+    "statistics/Feature.md",
+    "statistics",
+    "deep-learning/activation-function/Hyperbolic Tangent 1.md",
+    "deep-learning/neural-networks/Weight.md",
+    "deep-learning/neural-networks/Bias.md",
+    "images/neural network.png",
+    "images",
+    "mathematics/Derivative.md",
+    "deep-learning/optimization-function/Gradient Descent.md",
+    "deep-learning/optimization-function/Adagrad.md",
+    "deep-learning/activation-function/Rectified Linear Unit.md",
+    "deep-learning/optimization-function/Step Size.md",
+    "deep-learning/neural-networks",
+    "deep-learning/optimization-function",
+    "deep-learning/loss-function",
+    "deep-learning/activation-function",
+    "Untitled.canvas"
+  ]
+}
