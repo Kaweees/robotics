@@ -1,1 +1,0 @@
-- A [Reference Frame](Reference%20Frame.md) with respect to which the [Pose](Pose) of objects are defined

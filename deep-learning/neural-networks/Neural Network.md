@@ -1,216 +1,105 @@
-- A **neural network (nn)** $F: \mathbb{R}^{n} \to \mathbb{R}^{m}$ is a composition of [neurons](Neuron.md) arranged in layers $L$, to [model](Model.md) complex patterns in data.
-$$
-\mathbf{h}^{(l)} = \sigma(W^{(l)} \mathbf{h}^{(l-1)} + \mathbf{b}^{(l)}), \quad \forall l \in \{1, 2, \dots, L\}
-$$
-
-![[neural network.png]]
-
-A neural network is a function \( F: \mathbb{R}^{n} \to \mathbb{R}^{m} \) with \( L \) layers, where each layer consists of a collection of neurons. It is defined recursively:
-
+- A **neural network (nn)** $F: \mathbb{R}^{n} \to \mathbb{R}^{m}$ is a composition of [neurons](Neuron.md) arranged in layers $L$, to [model](../../statistics/Model.md) complex patterns in data.
+![neural network.png](../../images/neural%20network.png)
 
 $$
 F^L(\ldots F^1(F^0(x)))
 $$
 
+A sequence of layer dimensions:
+$$
+d_0, d_1, d_2, \dots, d_L
+$$
 where:
-- $F^L$ is the last layer
-- $F^1$ is the first layer
-- $F^0$ is the input layer
-- $x$ is the input data
+- $d_0 \in \mathbb{N}$ is the dimension of the input layer
+- $d_L \in \mathbb{N}$ is the dimension of the output layer
 
-### **1. Definition of a Linear Classifier**
 
-A **linear classifier** is a function that maps an input vector \( \mathbf{x} \in \mathbb{R}^n \) to a discrete class label using a linear decision boundary. Formally, we define a linear classifier as follows:
-
-#### **Definition: Linear Classifier**
-A linear classifier is a function \( f: \mathbb{R}^n \to \{-1, 1\} \) of the form:
-
-\[
-f(\mathbf{x}) = \operatorname{sign}(\mathbf{w}^T \mathbf{x} + b)
-\]
-
+A set of weight matrices and bias vectors:
+$$
+W^{(l)} \in \mathbb{R}^{d_l \times d_{l-1}}, \quad b^{(l)} \in \mathbb{R}^{d_l}, \quad \text{for } l = 1, 2, \dots, L
+$$
 where:
-- \( \mathbf{x} \in \mathbb{R}^n \) is the input vector.
-- \( \mathbf{w} \in \mathbb{R}^n \) is the weight vector, which determines the orientation of the decision boundary.
-- \( b \in \mathbb{R} \) is the bias term, which shifts the decision boundary.
-- \( \operatorname{sign} \) is the sign function, defined as:
+- each $ W^{(l)} $ represents the transformation of the activations from the previous layer, and $ b^{(l)} $ is a bias term.
 
-  \[
-  \operatorname{sign}(z) =
-  \begin{cases}
-  1, & z \geq 0 \\
-  -1, & z < 0
-  \end{cases}
-  \]
+3. A set of activation functions $ \sigma^{(l)}: \mathbb{R}^{d_l} \to \mathbb{R}^{d_l} $, which are element-wise nonlinear functions applied after each affine transformation.
 
-### **2. Definition of a Neuron in a Neural Network**
-
-A **neuron** in a neural network is a generalization of a linear classifier, incorporating a nonlinear activation function.
-
-#### **Definition: Neuron**
-A neuron is a function \( g: \mathbb{R}^n \to \mathbb{R} \) of the form:
-
-\[
-g(\mathbf{x}) = \sigma(\mathbf{w}^T \mathbf{x} + b)
-\]
-
+Thus, the neural network function $ f(x) $ is given recursively as:
+$$
+a^{(0)} = x
+$$
+$$
+z^{(l)} = W^{(l)} a^{(l-1)} + b^{(l)}, \quad \forall l = 1, \dots, L
+$$
+$$
+a^{(l)} = \sigma^{(l)}(z^{(l)}), \quad \forall l = 1, \dots, L-1
+$$
+$$
+f(x) = a^{(L)} = z^{(L)}.
+$$
 where:
-- \( \mathbf{x} \in \mathbb{R}^n \) is the input vector.
-- \( \mathbf{w} \in \mathbb{R}^n \) is the weight vector.
-- \( b \in \mathbb{R} \) is the bias term.
-- \( \sigma: \mathbb{R} \to \mathbb{R} \) is a **nonlinear activation function**, such as:
-  - **Sigmoid function:** \( \sigma(z) = \frac{1}{1 + e^{-z}} \)
-  - **ReLU (Rectified Linear Unit):** \( \sigma(z) = \max(0, z) \)
-  - **Hyperbolic tangent (Tanh):** \( \sigma(z) = \tanh(z) \)
+- $ a^{(l)} $ are the activations (outputs of each layer),
+- $ z^{(l)} $ are the pre-activation values (before applying activation functions),
+- $ \sigma^{(l)} $ is the activation function (such as ReLU or sigmoid).
 
-Unlike the linear classifier, which directly maps to a class label, the neuron’s output is continuous, making it suitable for deeper compositions.
 
-### **3. Definition of a Neural Network**
 
-A **neural network** is a composition of multiple neurons arranged in layers.
-
-#### **Definition: Neural Network**
-
-\[
+Given a neural network $F: \mathbb{R}^n \to \mathbb{R}^m$ with $L$ layers, the output of the $l$-th layer is given by:
+$$
 \mathbf{h}^{(l)} = \sigma(W^{(l)} \mathbf{h}^{(l-1)} + \mathbf{b}^{(l)}), \quad \forall l \in \{1, 2, \dots, L\}
-\]
-
+$$
 where:
-- \( \mathbf{h}^{(0)} = \mathbf{x} \) is the input vector.
-- \( W^{(l)} \in \mathbb{R}^{d_{l} \times d_{l-1}} \) is the weight matrix for layer \( l \).
-- \( \mathbf{b}^{(l)} \in \mathbb{R}^{d_l} \) is the bias vector for layer \( l \).
-- \( \mathbf{h}^{(l)} \in \mathbb{R}^{d_l} \) is the output of layer \( l \) (i.e., activations).
-- \( \sigma \) is the activation function applied elementwise.
+- $\mathbf{h}^{(l)} \in \mathbb{R}^{d_l}$ is the output of the $l$-th layer
+- $W^{(l)} \in \mathbb{R}^{d_l \times d_{l-1}}$ is the weight matrix for the $l$-th layer
+- $\mathbf{b}^{(l)} \in \mathbb{R}^{d_l}$ is the bias vector for the $l$-th layer
+- $\sigma$ is the activation function
 
-The final output \( \mathbf{h}^{(L)} \) represents either a class probability distribution (in classification) or a continuous value (in regression). If classification is required, a softmax function is often applied:
+### **Definition of a Neural Network**
+A **Neural Network** can be rigorously defined as a function $ f: \mathbb{R}^{d_0} \to \mathbb{R}^{d_L} $ parameterized by a sequence of weight matrices and bias vectors, where the function is computed as a composition of layer-wise affine transformations followed by nonlinear activation functions.
 
-\[
-F(\mathbf{x}) = \operatorname{softmax}(\mathbf{h}^{(L)})
-\]
 
-where:
 
-\[
-\operatorname{softmax}(\mathbf{z})_i = \frac{e^{z_i}}{\sum_{j=1}^{m} e^{z_j}}
-\]
+2.
+---
 
-for \( i \in \{1, \dots, m\} \).
+### **Definition of Forward Propagation**
+**Forward propagation** is the process of computing the output $ f(x) $ for a given input $ x $ by applying the sequence of transformations defined above.
+
+Mathematically, forward propagation is performed iteratively using the equations:
+
+1. **Input Layer:**
+   $$
+   a^{(0)} = x
+   $$
+   The input to the network is simply the given data point.
+
+2. **Hidden Layers (for $ l = 1 $ to $ L-1 $):**
+   $$
+   z^{(l)} = W^{(l)} a^{(l-1)} + b^{(l)}
+   $$
+   $$
+   a^{(l)} = \sigma^{(l)}(z^{(l)})
+   $$
+   where:
+   - $ W^{(l)} $ applies a linear transformation to the previous layer’s activations,
+   - $ b^{(l)} $ shifts the transformation,
+   - $ \sigma^{(l)} $ introduces nonlinearity.
+
+3. **Output Layer:**
+   $$
+   z^{(L)} = W^{(L)} a^{(L-1)} + b^{(L)}
+   $$
+   $$
+   f(x) = z^{(L)}
+   $$
+   Here, typically, no activation function is applied (or a specific function such as softmax is used in classification problems).
 
 ---
 
-### **Final Explanation of the Math Used**
-1. **Dot Product \( \mathbf{w}^T \mathbf{x} \)**
-   This computes a weighted sum of the input features, determining the decision boundary.
-2. **Bias Term \( b \)**
-   This allows shifting the decision boundary without affecting the weight vector.
-3. **Activation Function \( \sigma \)**
-   It introduces non-linearity, allowing the model to learn more complex decision boundaries beyond linear separation.
-4. **Layer-wise Transformation**
-   Each layer transforms its input using matrix multiplication and a non-linearity, enabling hierarchical feature learning.
-5. **Softmax Function**
-   Converts the final layer’s outputs into a probability distribution for classification.
+### **Explanation of the Math**
+- The **weight matrix** $ W^{(l)} $ represents the learnable parameters that determine how much influence each neuron in layer $ l-1 $ has on the neurons in layer $ l $.
+- The **bias vector** $ b^{(l)} $ accounts for an additional degree of freedom that shifts the activation independently of the input.
+- The **affine transformation** $ z^{(l)} = W^{(l)} a^{(l-1)} + b^{(l)} $ represents a linear mapping from one layer to the next.
+- The **activation function** $ \sigma^{(l)}(z^{(l)}) $ introduces nonlinearity, ensuring that the network can approximate complex functions.
+- The **output layer** may use an identity function (for regression) or a specialized function like softmax (for classification).
 
-This mathematical framework forms the foundation of modern neural networks.
-
-
-- A **Neural Network (NN)** is an interconnected layers of [neurons](Neuron.md) that perform mathematical operations to detect patterns in data
-
-$$
-a_0^{(1)} = \sigma(w_{0,0} a_0^{(0)} + w_{0,1} a_1^{(0)} + \cdots + w_{0,n} a_n^{(0)} + b_0)
-$$
-$$
-\begin{bmatrix}
-w_{0,0} & w_{0,1} & \cdots & w_{0,n} \\
-w_{1,0} & w_{1,1} & \cdots & w_{1,n} \\
-\vdots & \vdots & \ddots & \vdots \\
-w_{k,0} & w_{k,1} & \cdots & w_{k,n}
-\end{bmatrix}
-\begin{bmatrix}
-a_0^{(0)} \\
-a_1^{(0)} \\
-\vdots \\
-a_n^{(0)}
-\end{bmatrix}
-+
-\begin{bmatrix}
-b_0 \\
-b_1 \\
-\vdots \\
-b_n
-\end{bmatrix}
-$$
-
-$$
-X = \begin{bmatrix}
-k_1 \\
-k_2 \\
-\vdots \\
-k_n
-\end{bmatrix}
-
-W = \begin{bmatrix}
-w_{11} & w_{12} & \dots & w_{1n} \\
-w_{21} & w_{22} & \dots & w_{2n} \\
-\vdots & \vdots & \ddots & \vdots \\
-w_{m1} & w_{m2} & \dots & w_{mn}
-\end{bmatrix}
-$$
-
-The matrix-vector dot product in neurons comes from the way artificial neurons process inputs using linear algebra. This operation originates from the **weighted sum** computation in biological and artificial neural networks.
-
-### **Derivation from the Neuron Model**
-A simple artificial neuron takes multiple inputs, weights them, applies a bias, and then passes the result through an activation function.
-
-1. **Inputs and Weights**
-   Consider a neuron with \( n \) inputs, represented as a vector:
-   \[
-   \mathbf{x} = \begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{bmatrix}
-   \]
-   Each input has an associated weight:
-   \[
-   \mathbf{w} = \begin{bmatrix} w_1 \\ w_2 \\ \vdots \\ w_n \end{bmatrix}
-   \]
-
-2. **Weighted Sum**
-
-
-3. **Activation Function**
-   The output is then passed through a non-linear activation function \( f(z) \), such as ReLU or sigmoid:
-   \[
-   y = f(z)
-   \]
-
-### **Extending to Multiple Neurons (Matrix Form)**
-When dealing with multiple neurons in a **layer**, each neuron has its own set of weights. If there are \( m \) neurons and \( n \) inputs, we represent all neuron weights as a **weight matrix**:
-
-\[
-W =
-\begin{bmatrix}
-w_{11} & w_{12} & \dots & w_{1n} \\
-w_{21} & w_{22} & \dots & w_{2n} \\
-\vdots & \vdots & \ddots & \vdots \\
-w_{m1} & w_{m2} & \dots & w_{mn}
-\end{bmatrix}
-\]
-
-The inputs are still represented as a column vector:
-
-\[
-\mathbf{x} =
-\begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{bmatrix}
-\]
-
-The weighted sum for all neurons can be computed as:
-
-\[
-\mathbf{z} = W \mathbf{x} + \mathbf{b}
-\]
-
-where \( \mathbf{b} \) is a bias vector. This is a **matrix-vector multiplication**, which generalizes the dot product operation to multiple neurons.
-
-### **Why Use This Form?**
-- **Efficiency:** Matrix-vector operations are highly optimized in hardware (e.g., GPUs).
-- **Scalability:** It naturally extends to multiple neurons and layers in deep learning.
-- **Compact Representation:** Using linear algebra simplifies expressing neural network operations.
-
-Thus, the matrix-vector dot product in neurons comes from the fundamental **weighted sum** operation in artificial neurons and is generalized to matrix form for multiple neurons in a layer.
+Would you like me to add derivations for specific activation functions like ReLU, sigmoid, or softmax?

@@ -4,7 +4,7 @@ The [pre-activation (aka logits)](Logits.md) $z$ is the linear combination of th
 $$
 z = \mathbf{w}^T\mathbf{x} + b
 $$
-The pre-activation $z$ is then passed through the [activation function](Activation%20Function.md) $\sigma$ to produce the neuron's output:
+The pre-activation $z$ is then passed through the [activation function](Activation%20Function.md) $\sigma$ to produce the neuron's **activation** $a$:
 $$
 a = \sigma(z)
 $$
